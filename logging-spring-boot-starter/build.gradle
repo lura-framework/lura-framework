@@ -1,0 +1,67 @@
+
+plugins {
+  id 'org.springframework.boot'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'org.jetbrains.kotlin.jvm'
+  id 'maven-publish'
+  id 'org.jetbrains.kotlin.plugin.spring'
+}
+
+group = "me.lura"
+version = "0.0.1-SNAPSHOT"
+targetCompatibility = "1.8"
+
+configurations {
+  compileOnly {
+    configurations.annotationProcessor
+  }
+}
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation "org.springframework.boot:spring-boot-starter-web"
+  implementation "org.springframework.boot:spring-boot-starter-aop"
+  implementation 'cn.hutool:hutool-all:5.3.4'
+  api 'nl.basjes.parse.useragent:yauaa:5.23'
+  implementation("org.jetbrains.kotlin:kotlin-reflect")
+  implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+  developmentOnly("org.springframework.boot:spring-boot-devtools")
+  annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+  testImplementation("org.springframework.boot:spring-boot-starter-test")
+}
+
+publishing {
+  repositories {
+    maven {
+      credentials {
+        username '8J4Kgq' // 仓库发布用户名
+        password 'SCqYUI3Fo0' // 仓库发布用户密码
+      }
+      def releasesRepoUrl = "https://repo.rdc.aliyun.com/repository/125176-release-in5j7Q/"
+      def snapshotsRepoUrl = "https://repo.rdc.aliyun.com/repository/125176-snapshot-ZRQIV3/"
+      url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+    }
+  }
+
+  publications {
+    maven(MavenPublication) {
+      artifactId project.name
+      version project.version
+      from components.java
+      description 'lura framework logging' // 说明描述
+
+    }
+  }
+}
+
+java {
+  withSourcesJar()
+}
+
+
+test {
+  useJUnitPlatform()
+}

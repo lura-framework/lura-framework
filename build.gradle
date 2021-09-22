@@ -1,0 +1,37 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm'
+    id 'java-library'
+    id 'maven-publish'
+}
+
+group 'me.lura'
+version '1.0-SNAPSHOT'
+
+repositories {
+    maven {
+        credentials {
+            username '8J4Kgq'
+            password 'SCqYUI3Fo0'
+        }
+        url 'https://repo.rdc.aliyun.com/repository/125176-release-in5j7Q/'
+    }
+    maven {
+        credentials {
+            username '8J4Kgq'
+            password 'SCqYUI3Fo0'
+        }
+        url 'https://repo.rdc.aliyun.com/repository/125176-snapshot-ZRQIV3/'
+    }
+    mavenCentral()
+}
+
+dependencies {
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.freeCompilerArgs = ["-Xemit-jvm-type-annotations"]
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}

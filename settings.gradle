@@ -1,0 +1,10 @@
+pluginManagement {
+  plugins {
+    id 'org.jetbrains.kotlin.jvm' version "${kotlinVersion}"
+    id 'org.jetbrains.kotlin.plugin.spring' version "${kotlinVersion}"
+    id 'org.springframework.boot' version "${springBootVersion}"
+  }
+}
+rootProject.name = 'lura-framework'
+include 'logging-spring-boot-starter'
+
