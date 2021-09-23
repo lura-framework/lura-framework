@@ -1,4 +1,5 @@
 plugins {
+    id 'org.springframework.boot'
     id 'org.jetbrains.kotlin.jvm'
     id 'java-library'
     id 'maven-publish'
@@ -7,31 +8,50 @@ plugins {
 group 'me.lura'
 version '1.0-SNAPSHOT'
 
-repositories {
-    maven {
-        credentials {
-            username '8J4Kgq'
-            password 'SCqYUI3Fo0'
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    repositories {
+        maven {
+            credentials {
+                username '8J4Kgq'
+                password 'SCqYUI3Fo0'
+            }
+            url 'https://repo.rdc.aliyun.com/repository/125176-release-in5j7Q/'
         }
-        url 'https://repo.rdc.aliyun.com/repository/125176-release-in5j7Q/'
-    }
-    maven {
-        credentials {
-            username '8J4Kgq'
-            password 'SCqYUI3Fo0'
+        maven {
+            credentials {
+                username '8J4Kgq'
+                password 'SCqYUI3Fo0'
+            }
+            url 'https://repo.rdc.aliyun.com/repository/125176-snapshot-ZRQIV3/'
         }
-        url 'https://repo.rdc.aliyun.com/repository/125176-snapshot-ZRQIV3/'
+        mavenCentral()
     }
-    mavenCentral()
+
+    dependencies {
+        implementation 'cn.hutool:hutool-all:5.3.4'
+    }
+
+    compileKotlin {
+        kotlinOptions.jvmTarget = "1.8"
+        kotlinOptions.freeCompilerArgs = ["-Xemit-jvm-type-annotations"]
+    }
+    compileTestKotlin {
+        kotlinOptions.jvmTarget = "1.8"
+    }
+
+
+    java {
+        withSourcesJar()
+    }
+
+
+    test {
+        useJUnitPlatform()
+    }
+
 }
 
-dependencies {
-}
-
-compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-    kotlinOptions.freeCompilerArgs = ["-Xemit-jvm-type-annotations"]
-}
-compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
-}
