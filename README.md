@@ -3,11 +3,20 @@
 ## 包含项目
 | 项目名称| 说明| 技术方案|
 |--- | --- | --- |
+| <网关服务>| 微服务入口，集成限流/认证等能力| SpringCloudGateway、 JWT、 令牌桶算法|
+|lura-framework-spring-boot-starter | 提供服务注册中心、服务注册客户端lib ,支持多环境| SpringCloudAlibaba, Nacos | 
+|配置中心 | 提供微服务配置能力，支持多环境配置|Nacos
+| 链路追踪| 提供调用链路追踪，提供server和client lib| zipkin-server 、SpringCloudSleuth
+| 灰度发布 | 提供微服务灰度发布策略，rpc灰度调用、网关灰度转发| 基于注册中心metadata方式提供服务的环境状态。 通过docker环境变量或者配置文件的方式动态改变环境状态。
+
+## 提供能力
+| 能力| 说明| 技术方案|
+|--- | --- | --- |
 | 网关服务| 微服务入口，集成限流/认证等能力| SpringCloudGateway、 JWT、 令牌桶算法|
 |注册发现 | 提供服务注册中心、服务注册客户端lib ,支持多环境| SpringCloudAlibaba, Nacos | 
 |配置中心 | 提供微服务配置能力，支持多环境配置|Nacos
 | 链路追踪| 提供调用链路追踪，提供server和client lib| zipkin-server 、SpringCloudSleuth
-| 灰度发布 | 提供微服务灰度发布策略，rpc灰度调用、网关灰度转发| 
+| 灰度发布 | 提供微服务灰度发布策略，rpc灰度调用、网关灰度转发| 基于注册中心metadata方式提供服务的环境状态。 通过docker环境变量或者配置文件的方式动态改变环境状态。
 
 
 ## 本地构建

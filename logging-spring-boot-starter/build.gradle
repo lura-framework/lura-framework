@@ -26,6 +26,7 @@ dependencies {
   implementation "org.springframework.boot:spring-boot-starter-aop"
 
   api 'nl.basjes.parse.useragent:yauaa:5.23'
+  implementation 'cn.hutool:hutool-all:5.3.4'
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
   developmentOnly("org.springframework.boot:spring-boot-devtools")

@@ -1,0 +1,60 @@
+plugins {
+    id 'java-library'
+    id 'org.springframework.boot'
+    id 'io.spring.dependency-management'
+    id 'maven-publish'
+}
+
+group 'me.luraframework'
+version '1.0-SNAPSHOT'
+targetCompatibility = "1.8"
+
+repositories {
+    mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2020.0.4"
+        mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:2.2.6.RELEASE"
+    }
+}
+
+dependencies {
+    api "org.springframework.boot:spring-boot-starter-web"
+    api 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+    api 'org.springframework.cloud:spring-cloud-starter-sleuth'
+    api 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.6.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            versionMapping {
+                usage('java-api') {
+                    fromResolutionOf('runtimeClasspath')
+                }
+                usage('java-runtime') {
+                    fromResolutionResult()
+                }
+            }
+            description 'lura framework spring boot starter' // 说明描述
+        }
+    }
+}
+bootJar {
+    enabled=false
+}
+
+jar {
+    enabled=true
+}
