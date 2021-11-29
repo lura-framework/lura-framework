@@ -1,0 +1,32 @@
+version: '2'
+services:
+  # The zipkin process services the UI, and also exposes a POST endpoint that
+  # instrumentation can send trace data to. Scribe is disabled by default.
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    #environment:
+      #- STORAGE_TYPE=mysql
+      # Point the zipkin at the storage backend
+     # - MYSQL_DB=zipkin
+     # - MYSQL_USER=root
+     # - MYSQL_PASS=123456
+     # - MYSQL_HOST=你的数据库IP地址
+     # - MYSQL_TCP_PORT=3306
+      # Uncomment to enable scribe
+      # - SCRIBE_ENABLED=true
+      # Uncomment to enable self-tracing
+      # - SELF_TRACING_ENABLED=true
+      # Uncomment to enable debug logging
+      # - JAVA_OPTS=-Dlogging.level.zipkin=DEBUG -Dlogging.level.zipkin2=DEBUG
+   # network_mode: host
+    ports:
+      # Port used for the Zipkin UI and HTTP Api
+      - 9411:9411
+      # Uncomment if you set SCRIBE_ENABLED=true
+      # - 9410:9410
+    networks:
+      - lura-framework-net
+networks:
+  lura-framework-net:
+    driver: bridge

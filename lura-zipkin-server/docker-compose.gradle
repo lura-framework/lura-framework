@@ -1,0 +1,9 @@
+apply plugin: 'com.avast.gradle.docker-compose'
+
+
+dockerCompose {
+    useComposeFiles = ["./docker-compose.yml"]
+//     stopContainers = false
+//     removeContainers = false
+//     removeVolumes = false
+}

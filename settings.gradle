@@ -8,4 +8,5 @@ pluginManagement {
 rootProject.name = 'lura-framework'
 include 'logging-spring-boot-starter'
 include 'datasource-spring-boot-starter'
+include 'lura-zipkin-server'
 

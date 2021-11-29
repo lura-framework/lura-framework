@@ -3,6 +3,8 @@ plugins {
     id 'org.jetbrains.kotlin.jvm'
     id 'java-library'
     id 'maven-publish'
+    id "com.avast.gradle.docker-compose" version "0.14.9"
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
 group 'me.lura'
@@ -52,6 +54,8 @@ subprojects {
     test {
         useJUnitPlatform()
     }
+
+    apply from: "${rootProject.projectDir}/lura-zipkin-server/docker-compose.gradle"
 
 }
 
