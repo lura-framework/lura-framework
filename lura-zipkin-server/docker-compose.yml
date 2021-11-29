@@ -26,7 +26,8 @@ services:
       # Uncomment if you set SCRIBE_ENABLED=true
       # - 9410:9410
     networks:
-      - lura-framework-net
+      - lura-zipkin-net
 networks:
-  lura-framework-net:
-    driver: bridge
+  lura-zipkin-net:
+    external:
+      name: lura_net
