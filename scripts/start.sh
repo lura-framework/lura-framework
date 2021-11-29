@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
+workDir=$(dirname "$PWD")
+
 # 启动nacos server
-./start-nacos-server.sh
+.$workDir/start-nacos-server.sh
 #启动zipkin server
-./start-zipkin-server.sh
+.$workDir/start-zipkin-server.sh
