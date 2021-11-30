@@ -11,6 +11,7 @@ include 'logging-spring-boot-starter'
 include 'datasource-spring-boot-starter'
 include 'lura-zipkin-server'
 include 'lura-nacos-server'
+include 'lura-gateway-server'
 include 'lura-framework-spring-boot-starter'
 include 'lura-framework-user-server'
 

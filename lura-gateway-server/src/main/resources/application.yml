@@ -1,0 +1,10 @@
+server:
+  port: 22307
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: after_route
+        uri: http://www.baidu.com
+        predicates:
+        - Path=/
