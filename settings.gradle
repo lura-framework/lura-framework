@@ -13,5 +13,6 @@ include 'lura-zipkin-server'
 include 'lura-nacos-server'
 include 'lura-gateway-server'
 include 'lura-framework-spring-boot-starter'
-include 'lura-framework-user-server'
+include 'lura-framework-auth-server'
+include 'lura-framework-core'
 

@@ -1,6 +1,7 @@
 plugins {
     id 'org.springframework.boot'
-    id 'org.jetbrains.kotlin.jvm'
+    id 'org.jetbrains.kotlin.jvm' apply false
+    id 'java-library'
     id 'maven-publish'
     id "com.avast.gradle.docker-compose" version "0.14.9"
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
@@ -39,14 +40,6 @@ starterProject.each {
 
     dependencies {
         implementation 'cn.hutool:hutool-all:5.3.4'
-    }
-
-    compileKotlin {
-        kotlinOptions.jvmTarget = "1.8"
-        kotlinOptions.freeCompilerArgs = ["-Xemit-jvm-type-annotations"]
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "1.8"
     }
 
 

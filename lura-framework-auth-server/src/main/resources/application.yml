@@ -1,0 +1,12 @@
+server:
+  port: 8013
+spring:
+  application:
+    name: lura-framework-auth-server
+  cloud:
+    nacos:
+      discovery:
+        group: LURA-FRAMEWORK
+logging:
+  level:
+    org.springframework: debug
