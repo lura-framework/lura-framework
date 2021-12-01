@@ -7,6 +7,3 @@ spring:
     nacos:
       discovery:
         group: LURA-FRAMEWORK
-logging:
-  level:
-    org.springframework: debug
