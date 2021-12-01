@@ -9,6 +9,6 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(FlowException.class)
     public String handleFlowException(FlowException e) {
-        return e.getRule().toString();
+        return "流线限制";
     }
 }

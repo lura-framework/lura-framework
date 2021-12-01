@@ -33,4 +33,10 @@ public class AuthController {
         Jwt encode = JwtHelper.encode(JsonUtils.toStr(authentication.getPrincipal()), new MacSigner(jwtKey));
         return encode.getEncoded();
     }
+
+    @PostMapping("logout")
+    public Object logout() {
+        return "退出成功";
+    }
 }
+

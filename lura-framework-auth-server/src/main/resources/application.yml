@@ -15,3 +15,7 @@ spring:
             dataId: ${spring.application.name}-flow-rules
             groupId: SYSTEM
             rule-type: flow
+      transport:
+        port: 8719
+        dashboard: http://localhost:8858
+      http-method-specify: true
