@@ -8,6 +8,11 @@ group = 'com.example'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+bootJar {
+    version ''
+    baseName 'lura-gateway-server'
+}
+
 repositories {
     mavenCentral()
     maven { url 'https://repo.spring.io/milestone' }
