@@ -23,7 +23,10 @@ dependencyManagement {
 dependencies {
     api project(":lura-framework-core")
     api "org.springframework.boot:spring-boot-starter-web"
+
     api 'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-discovery'
+    api 'com.alibaba.cloud:spring-cloud-starter-alibaba-sentinel'
+    api 'com.alibaba.csp:sentinel-datasource-nacos'
     api 'org.springframework.cloud:spring-cloud-starter-sleuth'
     api 'org.springframework.cloud:spring-cloud-sleuth-zipkin'
 

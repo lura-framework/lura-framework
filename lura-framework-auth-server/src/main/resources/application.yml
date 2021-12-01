@@ -7,3 +7,11 @@ spring:
     nacos:
       discovery:
         group: LURA-FRAMEWORK
+    sentinel:
+      datasource:
+        flow:
+          nacos:
+            server-addr: localhost:8848
+            dataId: ${spring.application.name}-flow-rules
+            groupId: SYSTEM
+            rule-type: flow
