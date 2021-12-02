@@ -24,7 +24,6 @@ public class AuthController {
     private String jwtKey = "securityKey";
 
     @PostMapping("login")
-    @SentinelResource("login")
     public Object login(@RequestBody AuthUserDto authUserDto) {
 
         UsernamePasswordAuthenticationToken authenticationToken

@@ -44,4 +44,7 @@ bash ./scripts/start-zipkin-server.sh
 
 ## 技术架构图
 
+## 演示代码
+[电商系统](https://github.com/demonran/lura-framework-examples)
+
 ## FAQ
