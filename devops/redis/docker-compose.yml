@@ -1,0 +1,23 @@
+version: "2"
+services:
+  redis:
+    image: redis:latest
+    container_name: gateway-redis
+    command: redis-server --requirepass 123456
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+    volumes:
+      - redis_data:/data
+    ports:
+      - "16379:6379"
+    networks:
+      - default
+
+networks:
+  default:
+    external:
+      name: lura_net
+
+volumes:
+  redis_data:
